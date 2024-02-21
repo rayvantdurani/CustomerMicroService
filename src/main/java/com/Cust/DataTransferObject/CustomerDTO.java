@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 public class CustomerDTO {
 
 
-    @MongoId
+
     private Long customerId;
     private String name;
     private String password;

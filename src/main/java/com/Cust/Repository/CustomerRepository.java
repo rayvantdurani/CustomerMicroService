@@ -6,7 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
-public interface MongoRepo extends MongoRepository<Customer,Long> {
+public interface CustomerRepository extends MongoRepository<Customer,Long> {
 
     Optional<Customer> findByCustomerId(Long Id);
 

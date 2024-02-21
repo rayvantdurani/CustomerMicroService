@@ -1,11 +1,50 @@
 spring:
-  config:
-    import: "optional:configserver:http://localhost:8071/"
-
   application:
     name: "CustomerMicroService"
 
   profiles:
     active: "qa"
+
+  config:
+    import: "optional:configserver:http://localhost:8071/"
+
+base:
+  url: api
+
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+endpoints:
+  shutdown:
+    enabled: true
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: "http://localhost:8070/eureka"
+
+info:
+  app:
+    name: "CustomerMicroService"
+    description: "Customer Microservice Contains Customer Details"
+    version: "1.0.0"
+
 
 

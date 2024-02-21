@@ -1,7 +1,10 @@
 package com.Cust.Mapper;
 
 import com.Cust.DataTransferObject.CustomerDTO;
+import com.Cust.DataTransferObject.CustomerLoanDTO;
 import com.Cust.Entity.Customer;
+
+import java.time.LocalDateTime;
 
 public class CustomerMapper {
 
@@ -20,16 +23,22 @@ public class CustomerMapper {
         customer.setName(customerDTO.getName());
         customer.setPassword(customerDTO.getPassword());
         customer.setRole(customerDTO.getRole());
+        customer.setLastModifiedBy("ADMIN");
+        customer.setLastUpdatedTime(LocalDateTime.now());
         return customer;
     }
 
-    public static Customer mapUpdatedDetailsCustomer(Customer oldCustomer,Customer updatedCustomer)
+    public static CustomerLoanDTO mapToCustomerDetailsDTO(Customer customer, CustomerLoanDTO customerLoanDTO)
     {
-        oldCustomer.setPassword(updatedCustomer.getPassword());
-        oldCustomer.setName(updatedCustomer.getName());
-        oldCustomer.setRole(updatedCustomer.getRole());
-        return oldCustomer;
+        customerLoanDTO.setCustomerId(customer.getCustomerId());
+        customerLoanDTO.setCustomerName(customer.getName());
+        return customerLoanDTO;
+
     }
+
+
+
+
 
 
 
