@@ -31,7 +31,6 @@ public class CustomerMapper {
     public static CustomerLoanDTO mapToCustomerDetailsDTO(Customer customer, CustomerLoanDTO customerLoanDTO)
     {
         customerLoanDTO.setCustomerId(customer.getCustomerId());
-        customerLoanDTO.setCustomerName(customer.getName());
         return customerLoanDTO;
 
     }

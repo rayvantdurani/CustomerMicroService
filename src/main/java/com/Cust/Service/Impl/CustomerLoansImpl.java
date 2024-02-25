@@ -22,20 +22,18 @@ public class CustomerLoansImpl implements ILoansService {
     private LoansFeignClient loansFeignClient;
 
     @Override
-    public CustomerLoanDTO fetchCustomerLoans(Long customerId) {
+    public CustomerLoanDTO fetchLoans(Long customerId) {
         Customer customer = customerRepository.findByCustomerId(customerId).orElseThrow(
                 ()-> new ResourceNotFoundException(customerId.toString())
         );
-        CustomerLoanDTO customerLoanDTO = CustomerMapper.mapToCustomerDetailsDTO(customer,new CustomerLoanDTO());
-        customerLoanDTO.setCustomerDTO(CustomerMapper.mapToCustomerDTO(customer,new CustomerDTO()));
-
-
-
-
+      CustomerLoanDTO customerLoanDTO = CustomerMapper.mapToCustomerDetailsDTO(customer,new CustomerLoanDTO());
+      customerLoanDTO.setCustomerDTO(CustomerMapper.mapToCustomerDTO(customer,new CustomerDTO()));
         ResponseEntity<LoanDTO> loansDTOResponseEntity=loansFeignClient.getLoan(customerId);
         customerLoanDTO.setLoanDTO(loansDTOResponseEntity.getBody());
 
         return customerLoanDTO;
 
     }
+
+
 }

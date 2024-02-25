@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @FeignClient("LoansMicroService")
@@ -15,7 +16,7 @@ public interface LoansFeignClient {
 
 
     @GetMapping(value="api/fetch",consumes = "application/json")
-    public ResponseEntity<LoanDTO> getLoan(@RequestBody Long loanId);
+    public ResponseEntity<LoanDTO> getLoan(@RequestParam Long customerId);
 
 
 }

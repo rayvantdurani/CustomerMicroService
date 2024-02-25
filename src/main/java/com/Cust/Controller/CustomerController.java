@@ -48,8 +48,7 @@ public class CustomerController {
     public ResponseEntity<ResponseDTO> deleteUser(@RequestParam Long customerId)
     {
         iCustomerService.deletCustomer(customerId);
-
-        return    ResponseEntity.status(HttpStatus.ACCEPTED).body(new ResponseDTO(CustomerConstants.STATUS_200,CustomerConstants.MESSAGE_200));
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(new ResponseDTO(CustomerConstants.STATUS_200,CustomerConstants.MESSAGE_200));
     }
 
 

@@ -1,14 +1,11 @@
 package com.Cust.Service;
 
+import com.Cust.DataTransferObject.CustomerDTO;
 import com.Cust.DataTransferObject.CustomerLoanDTO;
-
+import com.Cust.DataTransferObject.LoanDTO;
 
 public interface ILoansService {
 
-    /**
-     * This will return consolidated record for the CustomerLoan Details
-     * @param customerId
-     * @return
-     */
-    CustomerLoanDTO fetchCustomerLoans(Long customerId);
+
+    CustomerLoanDTO fetchLoans(Long customerId);
 }
